@@ -7,7 +7,7 @@
 **Semester:** [Fall 2025]
 **Student Name(s):**
 
-* Vivek Kumar (22372) (Leader)
+* Vivek Kumar (22372)
 * Shrey Srivastava (22303)
 * Manjul Chaturvedi (22194)
 * Harsh Shukla (22140)
@@ -24,7 +24,7 @@
 
 Research collaborations are central to scientific progress, fostering knowledge exchange and innovation. Predicting potential collaborations can reveal hidden academic communities and recommend promising coauthors.
 
-Since coauthorship naturally forms a graph structure—authors as nodes and collaborations as edges—**graph-based machine learning** offers a powerful framework to address this problem through link prediction.
+Since coauthorship naturally forms a graph structure — authors as nodes and collaborations as edges — **graph-based machine learning** offers a powerful framework to address this problem through link prediction.
 
 ---
 
@@ -45,15 +45,14 @@ We aim to predict **future or potential collaborations** between authors using a
 
 ## 5. Timeline (Work Plan)
 
-| Week | Task                                       | Deliverable            |
-| ---- | ------------------------------------------ | ---------------------- |
-| 1–2  | Literature review                          | Short survey document  |
-| 3–4  | Dataset collection + preprocessing         | Clean coauthor dataset |
-| 5–7  | Implement baselines (heuristics, Node2Vec) | Baseline results       |
-| 8–9  | Implement GNN models (GAE, GraphSAGE, GAT) | Initial predictions    |
-| 10   | Experiments + model tuning                 | Performance comparison |
-| 11   | Final analysis, visualization, insights    | Draft report           |
-| 12   | Presentation & submission                  | Final report + slides  |
+| Week | Task                                          | Deliverable                    |
+| ---- | --------------------------------------------- | ------------------------------ |
+| 1    | Literature review & problem formulation       | Survey document & project plan |
+| 2    | Dataset collection and preprocessing          | Clean and processed dataset    |
+| 3    | Graph construction & baseline implementation  | Baseline results               |
+| 4    | Implementation of GNN models (GAE, GAT, etc.) | Initial model predictions      |
+| 5    | Model tuning, evaluation, and visualization   | Performance metrics & insights |
+| 6    | Final analysis, report, and presentation      | Final report & presentation    |
 
 ---
 
@@ -61,7 +60,7 @@ We aim to predict **future or potential collaborations** between authors using a
 
 We plan to extend the network into a **heterogeneous graph** of authors and papers, where papers include **Word2Vec embeddings** of their titles and introductions. This will allow the model to suggest not only new collaborators but also **relevant papers for an author’s research interests**.
 
-Further, **hyperparameters** will enable controlling link predictions—such as focusing on **specific subgraphs** (e.g., by region or field) or restricting predictions to localized neighborhoods for more fine-grained recommendations.
+Further, **hyperparameters** will enable controlling link predictions — such as focusing on **specific subgraphs** (e.g., by region or field) or restricting predictions to localized neighborhoods for more fine-grained recommendations.
 
 ---
 
@@ -73,5 +72,3 @@ Further, **hyperparameters** will enable controlling link predictions—such as 
 4. Hamilton, W., Ying, Z., & Leskovec, J. (2017). Inductive Representation Learning on Large Graphs. *NeurIPS*.
 
 ---
-
-
