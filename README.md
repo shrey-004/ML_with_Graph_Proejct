@@ -1,6 +1,9 @@
 
 ---
 
+**Author Collaboration Prediction using Graph Neural Networks**
+
+
 # 📘 Project Proposal
 
 **Course:** Machine Learning with Graphs
@@ -11,14 +14,6 @@
 * Shrey Srivastava (22303)
 * Manjul Chaturvedi (22194)
 * Harsh Shukla (22140)
-
----
-
-## 1. Project Title
-
-**Author Collaboration Prediction using Graph Neural Networks**
-
----
 
 ## 2. Introduction & Motivation
 
