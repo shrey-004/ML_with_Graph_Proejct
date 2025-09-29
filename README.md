@@ -7,7 +7,7 @@
 **Semester:** [Fall 2025]
 **Student Name(s):**
 
-* Vivek Kumar (22372)
+* Vivek Kumar (22372) (Leader)
 * Shrey Srivastava (22303)
 * Manjul Chaturvedi (22194)
 * Harsh Shukla (22140)
