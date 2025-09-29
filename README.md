@@ -7,8 +7,8 @@
 **Semester:** [Fall 2025]
 **Student Name(s):**
 
-* Shrey Srivastava (22303)
 * Vivek Kumar (22372)
+* Shrey Srivastava (22303)
 * Manjul Chaturvedi (22194)
 * Harsh Shukla (22140)
 
@@ -22,107 +22,28 @@
 
 ## 2. Introduction & Motivation
 
-Research collaboration plays a crucial role in advancing science, enabling the exchange of knowledge, interdisciplinary studies, and innovative problem-solving. Predicting potential collaborations between authors can uncover hidden academic communities, facilitate new partnerships, and recommend future coauthors to researchers.
+Research collaborations are central to scientific progress, fostering knowledge exchange and innovation. Predicting potential collaborations can reveal hidden academic communities and recommend promising coauthors.
 
-Coauthorship networks are naturally modeled as graphs, where authors represent nodes and collaborations represent edges. This makes **graph-based machine learning** methods particularly suitable for addressing the problem of collaboration prediction.
+Since coauthorship naturally forms a graph structure—authors as nodes and collaborations as edges—**graph-based machine learning** offers a powerful framework to address this problem through link prediction.
 
 ---
 
 ## 3. Problem Statement
 
-We aim to **predict future or potential collaborations between authors** by modeling the coauthorship network as a graph and applying **link prediction methods**. Given an existing coauthor graph, the task is to infer which pairs of authors are most likely to collaborate but do not currently share an edge.
-
-**Scope:**
-
-* Focus on predicting collaborations at the author level.
-* Both homogeneous (authors only) and heterogeneous (authors, papers, venues) graphs may be explored.
-* Out of scope: predicting paper acceptance, citation counts, or venue-level impact.
-
-**Challenges:**
-
-* Data sparsity in emerging authors.
-* High computational complexity with large coauthorship networks.
-* Incorporating textual/semantic features effectively.
+We aim to predict **future or potential collaborations** between authors using a coauthorship graph. Given an existing network, the task is to identify pairs of authors most likely to collaborate, even if they currently lack a direct link.
 
 ---
 
-## 4. Objectives
+## 4. Expected Outcomes
 
-* Construct a coauthorship network using bibliographic datasets (DBLP, arXiv).
-* Implement baseline heuristics for link prediction (e.g., Common Neighbors, Jaccard Index, Preferential Attachment).
-* Apply node embedding methods such as **Node2Vec**.
-* Develop and evaluate advanced graph models: **Graph Autoencoders (GAE/VGAE)**, **GraphSAGE**, **GAT**, and **LightGCN**.
-* Explore knowledge graph embeddings (TransE, DistMult) for heterogeneous graphs.
-* Evaluate using metrics such as **AUC, Average Precision, and Recall@K**.
-* Provide meaningful insights and visualizations of predicted collaboration links.
+* A trained model recommending potential collaborators for authors.
+* Quantitative comparison between heuristic, embedding, and GNN methods.
+* Visualizations of networks and predicted collaboration links.
+* Insights into structural and semantic factors driving collaborations.
 
 ---
 
-## 5. Literature Review (Background Work)
-
-* Liben-Nowell & Kleinberg (2007): Proposed link prediction methods using network proximity measures.
-* Grover & Leskovec (2016): Introduced **Node2Vec**, an embedding method for graph representation.
-* Kipf & Welling (2016): Proposed **Graph Autoencoders (GAE/VGAE)** for unsupervised link prediction.
-* Hamilton et al. (2017): Developed **GraphSAGE**, an inductive framework for large-scale graph learning.
-
-**Gap:** While traditional heuristics and embeddings capture structural information, they may not fully exploit semantic or higher-order dependencies. Our project builds upon these by integrating **GNN-based methods** with structural + semantic features for author collaboration prediction.
-
----
-
-## 6. Methodology
-
-* **Dataset:**
-
-  * Source: DBLP and arXiv metadata (authors, papers, venues).
-  * Nodes: Authors (optional: papers, venues, topics).
-  * Edges: Coauthorship links.
-  * Features: Publication count, aggregated text embeddings of titles/abstracts, venue information.
-
-* **Graph Construction:**
-
-  * Homogeneous graph: Authors as nodes, coauthorship as edges.
-  * Heterogeneous graph: Authors, papers, and venues as nodes with typed edges.
-
-* **Baselines:**
-
-  * Common Neighbors, Jaccard Similarity, Preferential Attachment.
-  * Node embedding (Node2Vec).
-
-* **Proposed Models:**
-
-  * Graph Autoencoders (GAE/VGAE).
-  * GraphSAGE, GAT, LightGCN.
-  * Knowledge graph embeddings (TransE, DistMult).
-
-* **Training Objective:**
-
-  * Link prediction via binary classification.
-  * Positive samples: existing coauthor edges.
-  * Negative samples: randomly chosen non-edges.
-
-* **Evaluation Metrics:**
-
-  * AUC, Average Precision, Recall@K.
-
-* **Tools/Libraries:**
-
-  * PyTorch Geometric, DGL, NetworkX, Scikit-learn.
-  * HuggingFace/SentenceTransformers (for textual features).
-
-*(A flowchart of the pipeline—data → graph construction → baseline → GNN models → evaluation—can be added here for clarity.)*
-
----
-
-## 7. Expected Outcomes
-
-* A trained model that can **recommend potential collaborators** for any given author.
-* Quantitative comparison between heuristic, embedding, and GNN-based methods.
-* Visualizations of coauthor networks with predicted collaboration links.
-* Insights into structural and semantic factors influencing academic collaborations.
-
----
-
-## 8. Timeline (Work Plan)
+## 5. Timeline (Work Plan)
 
 | Week | Task                                       | Deliverable            |
 | ---- | ------------------------------------------ | ---------------------- |
@@ -136,26 +57,21 @@ We aim to **predict future or potential collaborations between authors** by mode
 
 ---
 
-## 9. Challenges & Risks
+## 6. Future Plans
 
-* **Large-scale data:** DBLP and arXiv networks may contain millions of nodes and edges.
+We plan to extend the network into a **heterogeneous graph** of authors and papers, where papers include **Word2Vec embeddings** of their titles and introductions. This will allow the model to suggest not only new collaborators but also **relevant papers for an author’s research interests**.
 
-  * *Mitigation:* Use sampling techniques or focus on specific subfields.
-* **Cold-start problem:** New authors with limited data may be difficult to predict.
-
-  * *Mitigation:* Incorporate textual features from papers.
-* **Model complexity:** Training advanced GNNs may be resource-intensive.
-
-  * *Mitigation:* Optimize using GPU acceleration and efficient libraries.
+Further, **hyperparameters** will enable controlling link predictions—such as focusing on **specific subgraphs** (e.g., by region or field) or restricting predictions to localized neighborhoods for more fine-grained recommendations.
 
 ---
 
-## 10. References
+## 7. References
 
-1. Liben-Nowell, D., & Kleinberg, J. (2007). The link-prediction problem for social networks. *Journal of the American Society for Information Science and Technology*.
+1. Liben-Nowell, D., & Kleinberg, J. (2007). The link-prediction problem for social networks. *JASIST*.
 2. Grover, A., & Leskovec, J. (2016). Node2Vec: Scalable Feature Learning for Networks. *KDD*.
 3. Kipf, T. N., & Welling, M. (2016). Variational Graph Auto-Encoders. *arXiv:1611.07308*.
 4. Hamilton, W., Ying, Z., & Leskovec, J. (2017). Inductive Representation Learning on Large Graphs. *NeurIPS*.
 
 ---
+
 
